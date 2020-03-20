@@ -1,8 +1,9 @@
 <?php
 
-namespace Nrgone\EsbClient;
+namespace Nrgone\EsbClient\Factory;
 
 use GuzzleHttp\Client;
+use Nrgone\EsbClient\ApiConfig;
 use Nrgone\EsbClient\Factory\GuzzleHttp\ClientFactory as GuzzleHttpClientFactory;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Serializer\Encoder\DecoderInterface;

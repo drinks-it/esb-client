@@ -4,6 +4,7 @@ namespace Nrgone\EsbClient;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
+use Nrgone\EsbClient\Factory\EsbClientFactory;
 use Nrgone\EsbClient\Request\EmailRequest;
 use Nrgone\EsbClient\Request\OrderRequest;
 use Nrgone\EsbClient\Request\PimProductPriceRequest;
@@ -34,7 +35,7 @@ final class ApiClient
 
     private $client;
 
-    public function __construct(EsbClientFactory $esbClientFactory, DecoderInterface $decoder, LoggerInterface $logger)
+    public function __construct(EsbClientFactor $esbClientFactory, DecoderInterface $decoder, LoggerInterface $logger)
     {
         $this->esbClientFactory = $esbClientFactory;
         $this->decoder = $decoder;
