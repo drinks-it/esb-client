@@ -35,7 +35,7 @@ final class ApiClient
 
     private $client;
 
-    public function __construct(EsbClientFactor $esbClientFactory, DecoderInterface $decoder, LoggerInterface $logger)
+    public function __construct(EsbClientFactory $esbClientFactory, DecoderInterface $decoder, LoggerInterface $logger)
     {
         $this->esbClientFactory = $esbClientFactory;
         $this->decoder = $decoder;
