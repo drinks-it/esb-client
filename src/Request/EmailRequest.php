@@ -143,4 +143,74 @@ final class EmailRequest
     {
         return $this->attachmentContentType;
     }
+
+    public function setFrom(string $from): void
+    {
+        $this->from = $from;
+    }
+
+    public function setTo(string $to): void
+    {
+        $this->to = $to;
+    }
+
+    public function setCc(?string $cc): void
+    {
+        $this->cc = $cc;
+    }
+
+    public function setBcc(?string $bcc): void
+    {
+        $this->bcc = $bcc;
+    }
+
+    public function setSender(string $sender): void
+    {
+        $this->sender = $sender;
+    }
+
+    public function setReplyTo(?string $replyTo): void
+    {
+        $this->replyTo = $replyTo;
+    }
+
+    public function setSubject(string $subject): void
+    {
+        $this->subject = $subject;
+    }
+
+    public function setContentType(?string $contentType): void
+    {
+        $this->contentType = $contentType;
+    }
+
+    public function setCharset(?string $charset): void
+    {
+        $this->charset = $charset;
+    }
+
+    public function setText(?string $text): void
+    {
+        $this->text = $text;
+    }
+
+    public function setHtml(?string $html): void
+    {
+        $this->html = $html;
+    }
+
+    public function setAttachment(?string $attachment): void
+    {
+        $this->attachment = $attachment;
+    }
+
+    public function setAttachmentName(?string $attachmentName): void
+    {
+        $this->attachmentName = $attachmentName;
+    }
+
+    public function setAttachmentContentType(?string $attachmentContentType): void
+    {
+        $this->attachmentContentType = $attachmentContentType;
+    }
 }
