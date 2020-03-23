@@ -6,9 +6,6 @@ use GuzzleHttp\Client;
 use Nrgone\EsbClient\ApiConfig;
 use Nrgone\EsbClient\Factory\GuzzleHttp\ClientFactory as GuzzleHttpClientFactory;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Serializer\Encoder\DecoderInterface;
-use Symfony\Component\Serializer\Encoder\JsonDecode;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
 final class EsbClientFactory
 {
@@ -23,11 +20,6 @@ final class EsbClientFactory
     private $guzzleHttpClientFactory;
 
     /**
-     * @var DecoderInterface
-     */
-    private $jsonDecoder;
-
-    /**
      * @var LoggerInterface
      */
     private $logger;
@@ -35,12 +27,10 @@ final class EsbClientFactory
     public function __construct(
         ApiConfig $apiConfig,
         GuzzleHttpClientFactory $guzzleHttpClientFactory,
-        DecoderInterface $jsonDecoder,
         LoggerInterface $logger
     ) {
         $this->apiConfig = $apiConfig;
         $this->guzzleHttpClientFactory = $guzzleHttpClientFactory;
-        $this->jsonDecoder = $jsonDecoder;
         $this->logger = $logger;
     }
 
@@ -56,11 +46,7 @@ final class EsbClientFactory
                 'password' => $this->apiConfig->getPassword(),
             ],
         ]);
-        $responseDecoded = $this->jsonDecoder->decode(
-            (string)$response->getBody()->getContents(),
-            JsonEncoder::FORMAT,
-            [JsonDecode::ASSOCIATIVE => true]
-        );
+        $responseDecoded = json_decode((string)$response->getBody()->getContents(), true);
         $token = $responseDecoded['token'];
         $config['headers'] = [
             'Authorization' => 'Bearer ' . $token,

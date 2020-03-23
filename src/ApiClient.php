@@ -10,9 +10,6 @@ use Nrgone\EsbClient\Request\OrderRequest;
 use Nrgone\EsbClient\Request\PimProductPriceRequest;
 use Nrgone\EsbClient\Request\PixiReportTaxRequest;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Serializer\Encoder\DecoderInterface;
-use Symfony\Component\Serializer\Encoder\JsonDecode;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
 final class ApiClient
 {
@@ -24,21 +21,15 @@ final class ApiClient
     private $esbClientFactory;
 
     /**
-     * @var DecoderInterface
-     */
-    private $decoder;
-
-    /**
      * @var LoggerInterface
      */
     private $logger;
 
     private $client;
 
-    public function __construct(EsbClientFactory $esbClientFactory, DecoderInterface $decoder, LoggerInterface $logger)
+    public function __construct(EsbClientFactory $esbClientFactory, LoggerInterface $logger)
     {
         $this->esbClientFactory = $esbClientFactory;
-        $this->decoder = $decoder;
         $this->logger = $logger;
     }
 
@@ -62,11 +53,7 @@ final class ApiClient
                 ],
             ]
         );
-        return $this->decoder->decode(
-            (string)$response->getBody()->getContents(),
-            JsonEncoder::FORMAT,
-            [JsonDecode::ASSOCIATIVE => true]
-        );
+        return json_decode((string)$response->getBody()->getContents(), true);
     }
 
     public function sendPimProductPriceRequest(PimProductPriceRequest $pimProductPriceRequest): void
