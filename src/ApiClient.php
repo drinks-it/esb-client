@@ -8,6 +8,7 @@ use Nrgone\EsbClient\Factory\EsbClientFactory;
 use Nrgone\EsbClient\Request\EmailRequest;
 use Nrgone\EsbClient\Request\OrderRequest;
 use Nrgone\EsbClient\Request\PimProductPriceRequest;
+use Nrgone\EsbClient\Request\PixiReportOrderHeaderRequest;
 use Nrgone\EsbClient\Request\PixiReportTaxRequest;
 use Psr\Log\LoggerInterface;
 
@@ -145,6 +146,33 @@ final class ApiClient
             ]
         );
         $this->logger->info('PixiReportTaxRequest has been send', $data);
+        if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
+            throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
+        }
+    }
+
+    public function sendPixiReportOrderHeaderRequest(PixiReportOrderHeaderRequest $pixiReportOrderHeaderRequest): void
+    {
+        $data = [
+            'type' => 'PixiReportOrderHeaderRequest',
+            'attributes' => [
+                'from' => $pixiReportOrderHeaderRequest->getFrom()->format('Y-m-d'),
+                'to' => $pixiReportOrderHeaderRequest->getTo()->format('Y-m-d'),
+                'recipientEmail' => $pixiReportOrderHeaderRequest->getRecipientEmail(),
+            ],
+        ];
+        $response = $this->esbClientFactory->create()->request(
+            'POST',
+            'api/pixi_report_order_header_requests',
+            [
+                'headers' => [
+                    'Content-Type' => 'application/vnd.api+json',
+                    'Accept' => 'application/vnd.api+json',
+                ],
+                RequestOptions::JSON => ['data' => $data],
+            ]
+        );
+        $this->logger->info('PixiReportOrderHeaderRequest has been send', $data);
         if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
             throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
         }
