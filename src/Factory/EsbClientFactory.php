@@ -38,6 +38,7 @@ final class EsbClientFactory
     {
         $config = [
             'base_uri' => $this->apiConfig->getEndpointUrl(),
+            'verify' => false,
         ];
         $client = $this->guzzleHttpClientFactory->create($config);
         $response = $client->request('POST', 'authentication_token', [
