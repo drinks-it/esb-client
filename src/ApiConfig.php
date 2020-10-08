@@ -2,7 +2,7 @@
 
 namespace Nrgone\EsbClient;
 
-final class ApiConfig
+final class ApiConfig implements ApiConfigInterface
 {
     /**
      * @var string

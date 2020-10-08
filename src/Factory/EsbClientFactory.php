@@ -3,14 +3,14 @@
 namespace Nrgone\EsbClient\Factory;
 
 use GuzzleHttp\Client;
-use Nrgone\EsbClient\ApiConfig;
+use Nrgone\EsbClient\ApiConfigInterface;
 use Nrgone\EsbClient\Factory\GuzzleHttp\ClientFactory as GuzzleHttpClientFactory;
 use Psr\Log\LoggerInterface;
 
 final class EsbClientFactory
 {
     /**
-     * @var ApiConfig
+     * @var ApiConfigInterface
      */
     private $apiConfig;
 
@@ -25,7 +25,7 @@ final class EsbClientFactory
     private $logger;
 
     public function __construct(
-        ApiConfig $apiConfig,
+        ApiConfigInterface $apiConfig,
         GuzzleHttpClientFactory $guzzleHttpClientFactory,
         LoggerInterface $logger
     ) {
