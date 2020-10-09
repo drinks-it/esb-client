@@ -22,7 +22,7 @@ final class Item
     /**
      * @var string
      */
-    private $productId;
+    private $sku;
 
     /**
      * @var string
@@ -59,9 +59,9 @@ final class Item
         return $this->incrementId;
     }
 
-    public function getProductId(): string
+    public function getSku(): string
     {
-        return $this->productId;
+        return $this->sku;
     }
 
     public function getName(): string
@@ -99,9 +99,9 @@ final class Item
         $this->incrementId = $incrementId;
     }
 
-    public function setProductId(string $productId): void
+    public function setSku(string $sku): void
     {
-        $this->productId = $productId;
+        $this->sku = $sku;
     }
 
     public function setName(string $name): void

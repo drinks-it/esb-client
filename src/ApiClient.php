@@ -269,7 +269,7 @@ final class ApiClient
                 'incrementId' => $item->getIncrementId(),
                 'productId' => $item->getSku(),
                 'name' => $item->getName(),
-                'orderedQty' => $item->getQtyOrdered(),
+                'orderedQty' => $item->getOrderedQty(),
                 'discountAmount' => $item->getDiscountAmount(),
                 'itemNote' => $item->getItemNote(),
             ];
