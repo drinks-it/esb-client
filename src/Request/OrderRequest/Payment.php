@@ -19,6 +19,11 @@ final class Payment
      */
     private $lastTransactionId;
 
+    /**
+     * @var null|string
+     */
+    private $ccType;
+
     public function getCode(): string
     {
         return $this->code;
@@ -47,5 +52,21 @@ final class Payment
     public function setLastTransactionId(?string $lastTransactionId): void
     {
         $this->lastTransactionId = $lastTransactionId;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCcType(): ?string
+    {
+        return $this->ccType;
+    }
+
+    /**
+     * @param string|null $ccType
+     */
+    public function setCcType(?string $ccType): void
+    {
+        $this->ccType = $ccType;
     }
 }

@@ -222,6 +222,7 @@ final class ApiClient
                     'code' => $orderRequest->getPayment()->getCode(),
                     'baseCurrencyCode' => $orderRequest->getPayment()->getBaseCurrencyCode(),
                     'lastTransactionId' => $orderRequest->getPayment()->getLastTransactionId(),
+                    'ccType' => $orderRequest->getPayment()->getCcType(),
                 ],
                 'customer' => [
                     'id' => $orderRequest->getCustomer()->getId(),
