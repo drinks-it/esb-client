@@ -35,6 +35,11 @@ final class OrderRequest
     private $couponCode;
 
     /**
+     * @var null|string
+     */
+    private $referenceNumber = null;
+
+    /**
      * @var string
      */
     private $shippingMethod;
@@ -102,6 +107,11 @@ final class OrderRequest
     public function getCouponCode(): string
     {
         return $this->couponCode;
+    }
+
+    public function getReferenceNumber(): ?string
+    {
+        return $this->referenceNumber;
     }
 
     public function getShippingMethod(): string
@@ -175,6 +185,11 @@ final class OrderRequest
     public function setCouponCode(string $couponCode): void
     {
         $this->couponCode = $couponCode;
+    }
+
+    public function setReferenceNumber(?string $referenceNumber): void
+    {
+        $this->referenceNumber = $referenceNumber;
     }
 
     public function setShippingMethod(string $shippingMethod): void
