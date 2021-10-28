@@ -192,6 +192,7 @@ final class ApiClient
                 'shippingAmount' => $orderRequest->getShippingAmount(),
                 'shippingDescription' => $orderRequest->getShippingDescription(),
                 'referenceNumber' => $orderRequest->getReferenceNumber(),
+                'giftMessage' => $orderRequest->getGiftMessage(),
                 'type' => $orderRequest->getType(),
                 'billingAddress' => [
                     'prefix' => $orderRequest->getBillingAddress()->getPrefix(),
