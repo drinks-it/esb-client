@@ -44,6 +44,11 @@ final class Item
      */
     private $itemNote;
 
+    /**
+     * @var bool
+     */
+    private $isSilverbogenProduct;
+
     public function getPrice(): float
     {
         return $this->price;
@@ -122,5 +127,15 @@ final class Item
     public function setItemNote(string $itemNote): void
     {
         $this->itemNote = $itemNote;
+    }
+
+    public function isSilverbogenProduct(): bool
+    {
+        return $this->isSilverbogenProduct;
+    }
+
+    public function setIsSilverbogenProduct(bool $isSilverbogenProduct): void
+    {
+        $this->isSilverbogenProduct = $isSilverbogenProduct;
     }
 }
