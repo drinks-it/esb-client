@@ -59,6 +59,16 @@ final class Customer
      */
     private $printInvoice;
 
+    /**
+     * @var null|string
+     */
+    private $b2bIndustry;
+
+    /**
+     * @var string
+     */
+    private $group;
+
     public function getId(): int
     {
         return $this->id;
@@ -167,5 +177,25 @@ final class Customer
     public function setPrintInvoice(bool $printInvoice): void
     {
         $this->printInvoice = $printInvoice;
+    }
+
+    public function getB2bIndustry(): ?string
+    {
+        return $this->b2bIndustry;
+    }
+
+    public function setB2bIndustry(?string $b2bIndustry): void
+    {
+        $this->b2bIndustry = $b2bIndustry;
+    }
+
+    public function getGroup(): string
+    {
+        return $this->group;
+    }
+
+    public function setGroup(string $group): void
+    {
+        $this->group = $group;
     }
 }
