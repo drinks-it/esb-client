@@ -238,6 +238,8 @@ final class ApiClient
                     'spedition' => $orderRequest->getCustomer()->isSpedition(),
                     'isFirstTimeOrder' => $orderRequest->getCustomer()->isFirstTimeOrder(),
                     'printInvoice' => $orderRequest->getCustomer()->isPrintInvoice(),
+                    'b2bIndustry' => $orderRequest->getCustomer()->getB2bIndustry(),
+                    'group' => $orderRequest->getCustomer()->getGroup(),
                 ],
             ],
         ];
@@ -275,6 +277,7 @@ final class ApiClient
                 'orderedQty' => $item->getOrderedQty(),
                 'discountAmount' => $item->getDiscountAmount(),
                 'itemNote' => $item->getItemNote(),
+                'isSilverbogenProduct' => $item->isSilverbogenProduct(),
             ];
         }
         return $itemsData;
