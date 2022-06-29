@@ -240,6 +240,7 @@ final class ApiClient
                     'printInvoice' => $orderRequest->getCustomer()->isPrintInvoice(),
                     'b2bIndustry' => $orderRequest->getCustomer()->getB2bIndustry(),
                     'group' => $orderRequest->getCustomer()->getGroup(),
+                    'organizationName' => $orderRequest->getCustomer()->getOrganizationName(),
                 ],
             ],
         ];

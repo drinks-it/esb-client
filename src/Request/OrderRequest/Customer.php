@@ -69,6 +69,11 @@ final class Customer
      */
     private $group;
 
+    /**
+     * @var null|string
+     */
+    private $organizationName;
+
     public function getId(): int
     {
         return $this->id;
@@ -197,5 +202,15 @@ final class Customer
     public function setGroup(string $group): void
     {
         $this->group = $group;
+    }
+
+    public function getOrganizationName(): ?string
+    {
+        return $this->organizationName;
+    }
+
+    public function setOrganizationName(?string $organizationName): void
+    {
+        $this->organizationName = $organizationName;
     }
 }
