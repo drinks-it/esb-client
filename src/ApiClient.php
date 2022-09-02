@@ -190,6 +190,7 @@ final class ApiClient
                 'couponCode' => $orderRequest->getCouponCode(),
                 'shippingMethod' => $orderRequest->getShippingMethod(),
                 'shippingAmount' => $orderRequest->getShippingAmount(),
+                'shippingAmountInclTax' => $orderRequest->getShippingAmountInclTax(),
                 'shippingDescription' => $orderRequest->getShippingDescription(),
                 'referenceNumber' => $orderRequest->getReferenceNumber(),
                 'giftMessage' => $orderRequest->getGiftMessage(),

@@ -55,6 +55,11 @@ final class OrderRequest
     private $shippingAmount;
 
     /**
+     * @var null|string
+     */
+    private $shippingAmountInclTax = null;
+
+    /**
      * @var string
      */
     private $shippingDescription;
@@ -132,6 +137,11 @@ final class OrderRequest
     public function getShippingAmount(): string
     {
         return $this->shippingAmount;
+    }
+
+    public function getShippingAmountInclTax(): ?string
+    {
+        return $this->shippingAmountInclTax;
     }
 
     public function getShippingDescription(): string
@@ -215,6 +225,11 @@ final class OrderRequest
     public function setShippingAmount(string $shippingAmount): void
     {
         $this->shippingAmount = $shippingAmount;
+    }
+
+    public function setShippingAmountInclTax(?string $shippingAmountInclTax): void
+    {
+        $this->shippingAmountInclTax = $shippingAmountInclTax;
     }
 
     public function setShippingDescription(string $shippingDescription): void
