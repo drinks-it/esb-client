@@ -40,6 +40,11 @@ final class Item
     private $discountAmount;
 
     /**
+     * @var float
+     */
+    private $discountPercent;
+
+    /**
      * @var string
      */
     private $itemNote;
@@ -137,5 +142,21 @@ final class Item
     public function setIsSilverbogenProduct(bool $isSilverbogenProduct): void
     {
         $this->isSilverbogenProduct = $isSilverbogenProduct;
+    }
+
+    /**
+     * @return float
+     */
+    public function getDiscountPercent(): float
+    {
+        return $this->discountPercent;
+    }
+
+    /**
+     * @param float $discountPercent
+     */
+    public function setDiscountPercent(float $discountPercent): void
+    {
+        $this->discountPercent = $discountPercent;
     }
 }

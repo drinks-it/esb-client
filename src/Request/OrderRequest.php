@@ -55,6 +55,11 @@ final class OrderRequest
     private $shippingAmount;
 
     /**
+     * @var string
+     */
+    private $grandTotal;
+
+    /**
      * @var null|string
      */
     private $shippingAmountInclTax = null;
@@ -265,5 +270,15 @@ final class OrderRequest
     public function setCustomer(Customer $customer): void
     {
         $this->customer = $customer;
+    }
+
+    public function getGrandTotal(): string
+    {
+        return $this->grandTotal;
+    }
+
+    public function setGrandTotal(string $grandTotal): void
+    {
+        $this->grandTotal = $grandTotal;
     }
 }

@@ -195,6 +195,7 @@ final class ApiClient
                 'referenceNumber' => $orderRequest->getReferenceNumber(),
                 'giftMessage' => $orderRequest->getGiftMessage(),
                 'type' => $orderRequest->getType(),
+                'grandTotal' => $orderRequest->getGrandTotal(),
                 'billingAddress' => [
                     'prefix' => $orderRequest->getBillingAddress()->getPrefix(),
                     'company' => $orderRequest->getBillingAddress()->getCompany(),
@@ -278,6 +279,7 @@ final class ApiClient
                 'name' => $item->getName(),
                 'orderedQty' => $item->getOrderedQty(),
                 'discountAmount' => $item->getDiscountAmount(),
+                'discountPercent' => $item->getDiscountPercent(),
                 'itemNote' => $item->getItemNote(),
                 'isSilverbogenProduct' => $item->isSilverbogenProduct(),
             ];
