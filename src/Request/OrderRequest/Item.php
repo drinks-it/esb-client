@@ -45,6 +45,16 @@ final class Item
     private $discountPercent;
 
     /**
+     * @var float
+     */
+    private $rowTotal;
+
+    /**
+     * @var float
+     */
+    private $rowTotalInclTax;
+
+    /**
      * @var string
      */
     private $itemNote;
@@ -158,5 +168,37 @@ final class Item
     public function setDiscountPercent(float $discountPercent): void
     {
         $this->discountPercent = $discountPercent;
+    }
+
+    /**
+     * @return float
+     */
+    public function getRowTotal(): float
+    {
+        return $this->rowTotal;
+    }
+
+    /**
+     * @param float $rowTotal
+     */
+    public function setRowTotal(float $rowTotal): void
+    {
+        $this->rowTotal = $rowTotal;
+    }
+
+    /**
+     * @return float
+     */
+    public function getRowTotalInclTax(): float
+    {
+        return $this->rowTotalInclTax;
+    }
+
+    /**
+     * @param float $rowTotalInclTax
+     */
+    public function setRowTotalInclTax(float $rowTotalInclTax): void
+    {
+        $this->rowTotalInclTax = $rowTotalInclTax;
     }
 }
