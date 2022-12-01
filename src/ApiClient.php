@@ -280,6 +280,7 @@ final class ApiClient
                 'orderedQty' => $item->getOrderedQty(),
                 'discountAmount' => $item->getDiscountAmount(),
                 'discountPercent' => $item->getDiscountPercent(),
+                'itemNote' => $item->getItemNote(),
                 'rowTotal' => $item->getRowTotal(),
                 'rowTotalInclTax' => $item->getRowTotalInclTax(),
                 'isSilverbogenProduct' => $item->isSilverbogenProduct(),
