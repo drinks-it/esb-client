@@ -7,6 +7,11 @@ final class PixiCustomerOrdersReportRequest
     /**
      * @var string
      */
+    private $countryCode;
+
+    /**
+     * @var string
+     */
     private $customerEmail;
 
     /**
@@ -14,10 +19,16 @@ final class PixiCustomerOrdersReportRequest
      */
     private $recipientEmail;
 
-    public function __construct(string $customerEmail, string $recipientEmail)
+    public function __construct(string $countryCode, string $customerEmail, string $recipientEmail)
     {
+        $this->countryCode = $countryCode;
         $this->customerEmail = $customerEmail;
         $this->recipientEmail = $recipientEmail;
+    }
+
+    public function getCountryCode(): string
+    {
+        return $this->countryCode;
     }
 
     public function getCustomerEmail(): string

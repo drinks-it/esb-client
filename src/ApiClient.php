@@ -185,6 +185,7 @@ final class ApiClient
         $data = [
             'type' => 'PixiCustomerOrdersReportRequest',
             'attributes' => [
+                'countryCode' => $pixiCustomerOrdersReportRequest->getCountryCode(),
                 'customerEmail' => $pixiCustomerOrdersReportRequest->getCustomerEmail(),
                 'recipientEmail' => $pixiCustomerOrdersReportRequest->getRecipientEmail(),
             ],
