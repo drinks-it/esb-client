@@ -55,6 +55,11 @@ final class Customer
     private $isFirstTimeOrder;
 
     /**
+     * @var int
+     */
+    private $ordersCount;
+
+    /**
      * @var bool
      */
     private $printInvoice;
@@ -177,6 +182,16 @@ final class Customer
     public function setIsFirstTimeOrder(bool $isFirstTimeOrder): void
     {
         $this->isFirstTimeOrder = $isFirstTimeOrder;
+    }
+
+    public function getOrdersCount(): int
+    {
+        return $this->ordersCount;
+    }
+
+    public function setOrdersCount(int $ordersCount): void
+    {
+        $this->ordersCount = $ordersCount;
     }
 
     public function setPrintInvoice(bool $printInvoice): void
