@@ -268,6 +268,7 @@ final class ApiClient
                     'isBusiness' => $orderRequest->getCustomer()->isBusiness(),
                     'spedition' => $orderRequest->getCustomer()->isSpedition(),
                     'isFirstTimeOrder' => $orderRequest->getCustomer()->isFirstTimeOrder(),
+                    'ordersCount' => $orderRequest->getCustomer()->getOrdersCount(),
                     'printInvoice' => $orderRequest->getCustomer()->isPrintInvoice(),
                     'b2bIndustry' => $orderRequest->getCustomer()->getB2bIndustry(),
                     'group' => $orderRequest->getCustomer()->getGroup(),
