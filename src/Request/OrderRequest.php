@@ -60,11 +60,6 @@ final class OrderRequest
     private $grandTotal;
 
     /**
-     * @var null|string
-     */
-    private $shippingAmountInclTax = null;
-
-    /**
      * @var string
      */
     private $shippingDescription;

@@ -77,6 +77,11 @@ final class Customer
     /**
      * @var null|string
      */
+    private $isKeyAccount;
+
+    /**
+     * @var null|string
+     */
     private $organizationName;
 
     public function getId(): int
@@ -227,5 +232,15 @@ final class Customer
     public function setOrganizationName(?string $organizationName): void
     {
         $this->organizationName = $organizationName;
+    }
+
+    public function getIsKeyAccount(): ?string
+    {
+        return $this->isKeyAccount;
+    }
+
+    public function setIsKeyAccount(?string $isKeyAccount): void
+    {
+        $this->isKeyAccount = $isKeyAccount;
     }
 }
