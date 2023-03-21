@@ -271,6 +271,7 @@ final class ApiClient
                     'ordersCount' => $orderRequest->getCustomer()->getOrdersCount(),
                     'printInvoice' => $orderRequest->getCustomer()->isPrintInvoice(),
                     'b2bIndustry' => $orderRequest->getCustomer()->getB2bIndustry(),
+                    'isKeyAccount' => $orderRequest->getCustomer()->getIsKeyAccount(),
                     'group' => $orderRequest->getCustomer()->getGroup(),
                     'organizationName' => $orderRequest->getCustomer()->getOrganizationName(),
                 ],
