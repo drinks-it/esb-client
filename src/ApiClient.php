@@ -225,6 +225,8 @@ final class ApiClient
                 'giftMessage' => $orderRequest->getGiftMessage(),
                 'type' => $orderRequest->getType(),
                 'grandTotal' => $orderRequest->getGrandTotal(),
+                'voucherDiscount' => $orderRequest->getVoucherDiscount(),
+                'voucherUsedDate' => $orderRequest->getVoucherUsedDate(),
                 'billingAddress' => [
                     'prefix' => $orderRequest->getBillingAddress()->getPrefix(),
                     'company' => $orderRequest->getBillingAddress()->getCompany(),

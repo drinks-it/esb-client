@@ -94,12 +94,23 @@ final class OrderRequest
      */
     private $payment;
 
+
+    /**
+     * @var ?float
+     */
+    private $voucherDiscount = null;
+
+    /**
+     * @var ?\DateTimeInterface
+     */
+    private $voucherUsedDate = null;
+
     /**
      * @var Customer
      */
     private $customer;
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): \DateTimeInterface
     {
         return $this->createdAt;
     }
@@ -280,5 +291,25 @@ final class OrderRequest
     public function setGrandTotal(string $grandTotal): void
     {
         $this->grandTotal = $grandTotal;
+    }
+
+    public function getVoucherDiscount(): ?float
+    {
+        return $this->voucherDiscount;
+    }
+
+    public function setVoucherDiscount(?float $voucherDiscount): void
+    {
+        $this->voucherDiscount = $voucherDiscount;
+    }
+
+    public function getVoucherUsedDate(): ?\DateTimeInterface
+    {
+        return $this->voucherUsedDate;
+    }
+
+    public function setVoucherUsedDate(?\DateTimeInterface $voucherUsedDate): void
+    {
+        $this->voucherUsedDate = $voucherUsedDate;
     }
 }
