@@ -105,6 +105,11 @@ final class OrderRequest
      */
     private $customer;
 
+    /**
+     * @var null|string
+     */
+    private $shippingPhoneNumber = null;
+
     public function getCreatedAt(): \DateTimeInterface
     {
         return $this->createdAt;
@@ -306,5 +311,15 @@ final class OrderRequest
     public function setVoucherUsedDate(?\DateTimeInterface $voucherUsedDate): void
     {
         $this->voucherUsedDate = $voucherUsedDate;
+    }
+
+    public function getShippingPhoneNumber(): ?string
+    {
+        return $this->shippingPhoneNumber;
+    }
+
+    public function setShippingPhoneNumber(?string $shippingPhoneNumber): void
+    {
+        $this->shippingPhoneNumber = $shippingPhoneNumber;
     }
 }
