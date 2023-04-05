@@ -226,7 +226,7 @@ final class ApiClient
                 'type' => $orderRequest->getType(),
                 'grandTotal' => $orderRequest->getGrandTotal(),
                 'voucherDiscount' => $orderRequest->getVoucherDiscount(),
-                'voucherUsedDate' => $orderRequest->getVoucherUsedDate()->format('c'),
+                'voucherUsedDate' => $orderRequest->getVoucherUsedDate() ? $orderRequest->getVoucherUsedDate()->format('c') : null,
                 'shippingPhoneNumber' => $orderRequest->getShippingPhoneNumber(),
                 'billingAddress' => [
                     'prefix' => $orderRequest->getBillingAddress()->getPrefix(),
