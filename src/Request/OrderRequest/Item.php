@@ -64,6 +64,11 @@ final class Item
      */
     private $isSilverbogenProduct;
 
+    /**
+     * @var string
+     */
+    private $family;
+
     public function getPrice(): float
     {
         return $this->price;
@@ -154,51 +159,43 @@ final class Item
         $this->isSilverbogenProduct = $isSilverbogenProduct;
     }
 
-    /**
-     * @return float
-     */
     public function getDiscountPercent(): float
     {
         return $this->discountPercent;
     }
 
-    /**
-     * @param float $discountPercent
-     */
     public function setDiscountPercent(float $discountPercent): void
     {
         $this->discountPercent = $discountPercent;
     }
 
-    /**
-     * @return float
-     */
     public function getRowTotal(): float
     {
         return $this->rowTotal;
     }
 
-    /**
-     * @param float $rowTotal
-     */
     public function setRowTotal(float $rowTotal): void
     {
         $this->rowTotal = $rowTotal;
     }
 
-    /**
-     * @return float
-     */
     public function getRowTotalInclTax(): float
     {
         return $this->rowTotalInclTax;
     }
 
-    /**
-     * @param float $rowTotalInclTax
-     */
     public function setRowTotalInclTax(float $rowTotalInclTax): void
     {
         $this->rowTotalInclTax = $rowTotalInclTax;
+    }
+
+    public function getFamily(): string
+    {
+        return $this->family;
+    }
+
+    public function setFamily(string $family): void
+    {
+        $this->family = $family;
     }
 }
