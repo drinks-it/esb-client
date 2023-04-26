@@ -55,6 +55,11 @@ final class Item
     private $rowTotalInclTax;
 
     /**
+     * @var float
+     */
+    private $taxAmount;
+
+    /**
      * @var string
      */
     private $itemNote;
@@ -197,5 +202,15 @@ final class Item
     public function setFamily(string $family): void
     {
         $this->family = $family;
+    }
+
+    public function getTaxAmount(): float
+    {
+        return $this->taxAmount;
+    }
+
+    public function setTaxAmount(float $taxAmount): void
+    {
+        $this->taxAmount = $taxAmount;
     }
 }
