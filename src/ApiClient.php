@@ -288,6 +288,7 @@ final class ApiClient
                 'itemNote' => $item->getItemNote(),
                 'rowTotal' => $item->getRowTotal(),
                 'rowTotalInclTax' => $item->getRowTotalInclTax(),
+                'taxAmount' => $item->getTaxAmount(),
                 'isSilverbogenProduct' => $item->isSilverbogenProduct(),
                 'family' => $item->getFamily(),
             ];
