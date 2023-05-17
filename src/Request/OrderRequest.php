@@ -55,6 +55,11 @@ final class OrderRequest
     private $shippingAmount;
 
     /**
+     * @var string|null
+     */
+    private $shippingAmountInclTax;
+
+    /**
      * @var string
      */
     private $grandTotal;
