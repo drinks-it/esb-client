@@ -110,6 +110,17 @@ final class OrderRequest
      */
     private $shippingPhoneNumber = null;
 
+    /**
+     * @var null|\DateTimeInterface
+     */
+    private $shippingDateTimeFrom = null;
+
+    /**
+     * @var null|\DateTimeInterface
+     */
+    private $shippingDateTimeTo = null;
+
+
     public function getCreatedAt(): \DateTimeInterface
     {
         return $this->createdAt;
@@ -321,5 +332,25 @@ final class OrderRequest
     public function setShippingPhoneNumber(?string $shippingPhoneNumber): void
     {
         $this->shippingPhoneNumber = $shippingPhoneNumber;
+    }
+
+    public function getShippingDateTimeFrom(): ?\DateTimeInterface
+    {
+        return $this->shippingDateTimeFrom;
+    }
+
+    public function setShippingDateTimeFrom(?\DateTimeInterface $shippingDateTimeFrom): void
+    {
+        $this->shippingDateTimeFrom = $shippingDateTimeFrom;
+    }
+
+    public function getShippingDateTimeTo(): ?\DateTimeInterface
+    {
+        return $this->shippingDateTimeTo;
+    }
+
+    public function setShippingDateTimeTo(?\DateTimeInterface $shippingDateTimeTo): void
+    {
+        $this->shippingDateTimeTo = $shippingDateTimeTo;
     }
 }
