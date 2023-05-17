@@ -55,9 +55,9 @@ final class OrderRequest
     private $shippingAmount;
 
     /**
-     * @var null|string
+     * @var string|null
      */
-    private $shippingAmountInclTax = null;
+    private $shippingAmountInclTax;
 
     /**
      * @var string
