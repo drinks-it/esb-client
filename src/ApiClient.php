@@ -199,8 +199,8 @@ final class ApiClient
                 'voucherDiscount' => $orderRequest->getVoucherDiscount(),
                 'voucherUsedDate' => $orderRequest->getVoucherUsedDate() ? $orderRequest->getVoucherUsedDate()->format('c') : null,
                 'shippingPhoneNumber' => $orderRequest->getShippingPhoneNumber(),
-                'shippingDateTimeFrom' => $orderRequest->getShippingDateTimeFrom()->format('c'),
-                'shippingDateTimeTo' => $orderRequest->getShippingDateTimeTo()->format('c'),
+                'shippingDateTimeFrom' => $orderRequest->getShippingDateTimeFrom() ? $orderRequest->getShippingDateTimeFrom()->format('c') : null,
+                'shippingDateTimeTo' => $orderRequest->getShippingDateTimeTo() ? $orderRequest->getShippingDateTimeTo()->format('c') : null,
                 'billingAddress' => [
                     'prefix' => $orderRequest->getBillingAddress()->getPrefix(),
                     'company' => $orderRequest->getBillingAddress()->getCompany(),
