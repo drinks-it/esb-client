@@ -82,6 +82,11 @@ final class Customer
     /**
      * @var null|string
      */
+    private $telAnnouncement;
+
+    /**
+     * @var null|string
+     */
     private $organizationName;
 
     public function getId(): int
@@ -242,5 +247,15 @@ final class Customer
     public function setIsKeyAccount(?string $isKeyAccount): void
     {
         $this->isKeyAccount = $isKeyAccount;
+    }
+
+    public function getTelAnnouncement(): ?string
+    {
+        return $this->telAnnouncement;
+    }
+
+    public function setTelAnnouncement(?string $telAnnouncement): void
+    {
+        $this->telAnnouncement = $telAnnouncement;
     }
 }
