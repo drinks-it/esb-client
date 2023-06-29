@@ -249,7 +249,7 @@ final class ApiClient
                     'b2bIndustry' => $orderRequest->getCustomer()->getB2bIndustry(),
                     'isKeyAccount' => $orderRequest->getCustomer()->getIsKeyAccount(),
                     'telAnnouncement' => $orderRequest->getCustomer()->getTelAnnouncement(),
-                    'tel' => $orderRequest->getCustomer()->getIsKeyAccount(),
+                    'dunningEmail' => $orderRequest->getCustomer()->getDunningEmail(),
                     'group' => $orderRequest->getCustomer()->getGroup(),
                     'organizationName' => $orderRequest->getCustomer()->getOrganizationName(),
                 ],

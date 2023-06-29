@@ -87,6 +87,11 @@ final class Customer
     /**
      * @var null|string
      */
+    private $dunningEmail;
+
+    /**
+     * @var null|string
+     */
     private $organizationName;
 
     public function getId(): int
@@ -257,5 +262,15 @@ final class Customer
     public function setTelAnnouncement(?string $telAnnouncement): void
     {
         $this->telAnnouncement = $telAnnouncement;
+    }
+
+    public function getDunningEmail(): ?string
+    {
+        return $this->dunningEmail;
+    }
+
+    public function setDunningEmail(?string $dunningEmail): void
+    {
+        $this->dunningEmail = $dunningEmail;
     }
 }
