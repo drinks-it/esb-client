@@ -35,6 +35,16 @@ final class Item
     private $orderedQty;
 
     /**
+     * @var int
+     */
+    private $orderedInternalQty;
+
+    /**
+     * @var int
+     */
+    private $orderedExternalQty;
+
+    /**
      * @var float
      */
     private $discountAmount;
@@ -104,6 +114,16 @@ final class Item
         return $this->orderedQty;
     }
 
+    public function getOrderedInternalQty(): int
+    {
+        return $this->orderedInternalQty;
+    }
+
+    public function getOrderedExternalQty(): int
+    {
+        return $this->orderedExternalQty;
+    }
+
     public function getDiscountAmount(): float
     {
         return $this->discountAmount;
@@ -142,6 +162,16 @@ final class Item
     public function setOrderedQty(int $orderedQty): void
     {
         $this->orderedQty = $orderedQty;
+    }
+
+    public function setOrderedInternalQty(int $orderedInternalQty): void
+    {
+        $this->orderedInternalQty = $orderedInternalQty;
+    }
+
+    public function setOrderedExternalQty(int $orderedExternalQty): void
+    {
+        $this->orderedExternalQty = $orderedExternalQty;
     }
 
     public function setDiscountAmount(float $discountAmount): void

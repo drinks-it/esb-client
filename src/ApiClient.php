@@ -316,6 +316,8 @@ final class ApiClient
                 'productId' => $item->getSku(),
                 'name' => $item->getName(),
                 'orderedQty' => $item->getOrderedQty(),
+                'orderedInternalQty' => $item->getOrderedInternalQty(),
+                'orderedExternalQty' => $item->getOrderedExternalQty(),
                 'discountAmount' => $item->getDiscountAmount(),
                 'discountPercent' => $item->getDiscountPercent(),
                 'itemNote' => $item->getItemNote(),
