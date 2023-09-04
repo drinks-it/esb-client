@@ -35,12 +35,12 @@ final class Item
     private $orderedQty;
 
     /**
-     * @var int
+     * @var int|null
      */
     private $orderedInternalQty;
 
     /**
-     * @var int
+     * @var int|null
      */
     private $orderedExternalQty;
 
@@ -114,12 +114,12 @@ final class Item
         return $this->orderedQty;
     }
 
-    public function getOrderedInternalQty(): int
+    public function getOrderedInternalQty(): ?int
     {
         return $this->orderedInternalQty;
     }
 
-    public function getOrderedExternalQty(): int
+    public function getOrderedExternalQty(): ?int
     {
         return $this->orderedExternalQty;
     }
@@ -164,12 +164,12 @@ final class Item
         $this->orderedQty = $orderedQty;
     }
 
-    public function setOrderedInternalQty(int $orderedInternalQty): void
+    public function setOrderedInternalQty(?int $orderedInternalQty): void
     {
         $this->orderedInternalQty = $orderedInternalQty;
     }
 
-    public function setOrderedExternalQty(int $orderedExternalQty): void
+    public function setOrderedExternalQty(?int $orderedExternalQty): void
     {
         $this->orderedExternalQty = $orderedExternalQty;
     }
