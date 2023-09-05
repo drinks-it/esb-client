@@ -92,6 +92,11 @@ final class Customer
     /**
      * @var null|string
      */
+    private $invoicesEmail;
+
+    /**
+     * @var null|string
+     */
     private $organizationName;
 
     public function getId(): int
@@ -272,5 +277,15 @@ final class Customer
     public function setDunningEmail(?string $dunningEmail): void
     {
         $this->dunningEmail = $dunningEmail;
+    }
+
+    public function getInvoicesEmail(): ?string
+    {
+        return $this->invoicesEmail;
+    }
+
+    public function setInvoicesEmail(?string $invoicesEmail): void
+    {
+        $this->invoicesEmail = $invoicesEmail;
     }
 }
