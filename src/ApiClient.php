@@ -250,6 +250,7 @@ final class ApiClient
                     'isKeyAccount' => $orderRequest->getCustomer()->getIsKeyAccount(),
                     'telAnnouncement' => $orderRequest->getCustomer()->getTelAnnouncement(),
                     'dunningEmail' => $orderRequest->getCustomer()->getDunningEmail(),
+                    'invoicesEmail' => $orderRequest->getCustomer()->getInvoicesEmail(),
                     'group' => $orderRequest->getCustomer()->getGroup(),
                     'organizationName' => $orderRequest->getCustomer()->getOrganizationName(),
                 ],
