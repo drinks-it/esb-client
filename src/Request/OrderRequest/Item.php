@@ -35,6 +35,11 @@ final class Item
     private $orderedQty;
 
     /**
+     * @var int|null
+     */
+    private $orderedExternalQty;
+
+    /**
      * @var float
      */
     private $discountAmount;
@@ -212,5 +217,15 @@ final class Item
     public function setTaxAmount(float $taxAmount): void
     {
         $this->taxAmount = $taxAmount;
+    }
+
+    public function getOrderedExternalQty(): ?int
+    {
+        return $this->orderedExternalQty;
+    }
+
+    public function setOrderedExternalQty(?int $orderedExternalQty): void
+    {
+        $this->orderedExternalQty = $orderedExternalQty;
     }
 }
