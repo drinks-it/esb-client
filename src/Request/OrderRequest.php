@@ -106,6 +106,11 @@ final class OrderRequest
     private $voucherUsedDate = null;
 
     /**
+     * @var null|bool
+     */
+    private $voucherIsGiftCard = null;
+
+    /**
      * @var Customer
      */
     private $customer;
@@ -327,6 +332,16 @@ final class OrderRequest
     public function setVoucherUsedDate(?\DateTimeInterface $voucherUsedDate): void
     {
         $this->voucherUsedDate = $voucherUsedDate;
+    }
+
+    public function getVoucherIsGiftCard(): ?bool
+    {
+        return $this->voucherIsGiftCard;
+    }
+
+    public function setVoucherIsGiftCard(?bool $voucherIsGiftCard): void
+    {
+        $this->voucherIsGiftCard = $voucherIsGiftCard;
     }
 
     public function getShippingPhoneNumber(): ?string

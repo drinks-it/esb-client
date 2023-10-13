@@ -198,6 +198,7 @@ final class ApiClient
                 'grandTotal' => $orderRequest->getGrandTotal(),
                 'voucherDiscount' => $orderRequest->getVoucherDiscount(),
                 'voucherUsedDate' => $orderRequest->getVoucherUsedDate() ? $orderRequest->getVoucherUsedDate()->format('c') : null,
+                'voucherIsGiftCard' => $orderRequest->getVoucherIsGiftCard(),
                 'shippingPhoneNumber' => $orderRequest->getShippingPhoneNumber(),
                 'shippingDateTimeFrom' => $orderRequest->getShippingDateTimeFrom() ? $orderRequest->getShippingDateTimeFrom()->format('c') : null,
                 'shippingDateTimeTo' => $orderRequest->getShippingDateTimeTo() ? $orderRequest->getShippingDateTimeTo()->format('c') : null,
