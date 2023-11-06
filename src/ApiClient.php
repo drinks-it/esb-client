@@ -15,6 +15,7 @@ use Psr\Log\LoggerInterface;
 final class ApiClient
 {
     private const HTTP_ACCEPTED = 202;
+    private const HTTP_NO_CONTENT = 204;
 
     /**
      * @var EsbClientFactory
@@ -100,7 +101,7 @@ final class ApiClient
             ]
         );
         $this->logger->info('InventoryUpdateRequest has been send', $skus);
-        if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
+        if ($response->getStatusCode() !== self::HTTP_NO_CONTENT) {
             throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
         }
     }
