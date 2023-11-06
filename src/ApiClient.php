@@ -86,6 +86,29 @@ final class ApiClient
         }
     }
 
+    public function sendInventoryUpdateRequest(array $skus): void
+    {
+        $data = [
+            'type' => 'InventoryUpdateRequest',
+            'skus' => $skus,
+        ];
+        $response = $this->getClient()->request(
+            'POST',
+            'api/sap/sync-stock',
+            [
+                'headers' => [
+                    'Content-Type' => 'application/vnd.api+json',
+                    'Accept' => 'application/vnd.api+json',
+                ],
+                RequestOptions::JSON => ['data' => $data],
+            ]
+        );
+        $this->logger->info('InventoryUpdateRequest has been send', $data);
+        if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
+            throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
+        }
+    }
+
     public function sendEmailRequest(EmailRequest $emailRequest): void
     {
         $data = [
