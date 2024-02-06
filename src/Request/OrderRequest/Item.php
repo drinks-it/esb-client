@@ -228,14 +228,4 @@ final class Item
     {
         $this->taxAmount = $taxAmount;
     }
-
-    public function getOrderedExternalQty(): ?int
-    {
-        return $this->orderedExternalQty;
-    }
-
-    public function setOrderedExternalQty(?int $orderedExternalQty): void
-    {
-        $this->orderedExternalQty = $orderedExternalQty;
-    }
 }
