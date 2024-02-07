@@ -7,6 +7,7 @@ use GuzzleHttp\RequestOptions;
 use Nrgone\EsbClient\Factory\EsbClientFactory;
 use Nrgone\EsbClient\Request\EmailRequest;
 use Nrgone\EsbClient\Request\OrderRequest;
+use Nrgone\EsbClient\Request\PimProductMsiFallbackRequest;
 use Nrgone\EsbClient\Request\PimProductPriceRequest;
 use Nrgone\EsbClient\Request\PixiReportOrderHeaderRequest;
 use Nrgone\EsbClient\Request\PixiReportTaxRequest;
@@ -269,6 +270,36 @@ final class ApiClient
             ]
         );
         $this->logger->info('OrderRequest has been send', $data);
+        if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
+            throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
+        }
+    }
+
+    public function sendPimProductMsiFallback(PimProductMsiFallbackRequest  $request): void
+    {
+        $data =  [
+            'type' => 'PimProductMsiFallbackRequest',
+            'attributes' => [
+                'sku' => $request->getSku(),
+                'countryCode' => $request->getCountryCode(),
+                'isMsiFallbackDisabled' => $request->getIsMsiFallbackDisabled(),
+            ],
+        ];
+
+        $response = $this->esbClientFactory->create()->request(
+            'POST',
+            'api/pim_product_msi_fallback_requests',
+            [
+                'headers' => [
+                    'Content-Type' => 'application/vnd.api+json',
+                    'Accept' => 'application/vnd.api+json',
+                ],
+                RequestOptions::JSON => [
+                    'data' => $data
+                ],
+            ]
+        );
+        $this->logger->info('PimProductMsiFallbackRequest has been send', $data);
         if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
             throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
         }
