@@ -89,6 +89,25 @@ final class ApiClient
         }
     }
 
+    public function canSavePimProduct(string $countryCode, string $sku): bool
+    {
+        try {
+            $response = $this->getClient()->request(
+                'GET',
+                sprintf('api/pim/validate-product/%s/%s', $countryCode, $sku),
+                [
+                    'headers' => [
+                        'Content-Type' => 'application/vnd.api+json',
+                        'Accept' => 'application/vnd.api+json',
+                    ]
+                ]
+            );
+            return $response->getStatusCode() === self::HTTP_NO_CONTENT;
+        } catch (\GuzzleHttp\Exception\BadResponseException $exception) {
+            return false;
+        }
+    }
+
     public function sendInventoryUpdateRequest(array $skus): void
     {
         $response = $this->getClient()->request(
