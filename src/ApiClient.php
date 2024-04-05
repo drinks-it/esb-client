@@ -5,6 +5,7 @@ namespace Nrgone\EsbClient;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Nrgone\EsbClient\Factory\EsbClientFactory;
+use Nrgone\EsbClient\Request\AlcoholTaxReportingWarehouseRequest;
 use Nrgone\EsbClient\Request\EmailRequest;
 use Nrgone\EsbClient\Request\OrderRequest;
 use Nrgone\EsbClient\Request\PimProductMsiFallbackRequest;
@@ -368,6 +369,33 @@ final class ApiClient
             ]
         );
         $this->logger->info('PimProductMsiFallbackRequest has been send', $data);
+        if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
+            throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
+        }
+    }
+
+    public function sendAlcoholTaxReportingWarehouseRequest(AlcoholTaxReportingWarehouseRequest $request): void
+    {
+        $data = [
+            'type' => 'AlcoholTaxReportingWarehouseRequest',
+            'attributes' => [
+                'email' => $request->getEmail(),
+                'countryCode' => $request->getCountryCode(),
+                'yearMonthDate' => $request->getYearMonthDate()->format('Y-m-d'),
+            ],
+        ];
+        $response = $this->esbClientFactory->create()->request(
+            'POST',
+            'api/alcohol_tax_reporting_warehouse_requests',
+            [
+                'headers' => [
+                    'Content-Type' => 'application/vnd.api+json',
+                    'Accept' => 'application/vnd.api+json',
+                ],
+                RequestOptions::JSON => ['data' => $data],
+            ]
+        );
+        $this->logger->info('AlcoholTaxReportingWarehouseRequest has been send', $data);
         if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
             throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
         }
