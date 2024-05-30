@@ -7,6 +7,7 @@ use GuzzleHttp\RequestOptions;
 use Nrgone\EsbClient\Factory\EsbClientFactory;
 use Nrgone\EsbClient\Request\AlcoholTaxReportingWarehouseRequest;
 use Nrgone\EsbClient\Request\EmailRequest;
+use Nrgone\EsbClient\Request\MarketplaceOrderRequest;
 use Nrgone\EsbClient\Request\OrderRequest;
 use Nrgone\EsbClient\Request\PimProductMsiFallbackRequest;
 use Nrgone\EsbClient\Request\PimProductPriceRequest;
@@ -17,6 +18,7 @@ use Psr\Log\LoggerInterface;
 
 final class ApiClient
 {
+    private const HTTP_OK = 200;
     private const HTTP_ACCEPTED = 202;
     private const HTTP_NO_CONTENT = 204;
 
@@ -397,6 +399,50 @@ final class ApiClient
         );
         $this->logger->info('AlcoholTaxReportingWarehouseRequest has been send', $data);
         if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
+            throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
+        }
+    }
+
+    public function sendMarketplaceOrderRequest(MarketplaceOrderRequest $marketplaceOrderRequest): void
+    {
+        $products = [];
+        foreach ($marketplaceOrderRequest->getProducts() as $product) {
+            $products[] = [
+                'sku' => $product->getSku(),
+                'qty' => $product->getQty(),
+                'price' => $product->getPrice(),
+            ];
+        }
+        $data = [
+            'customer_id' => $marketplaceOrderRequest->getCustomerId(),
+            'products' => $products,
+            'payment_method' => $marketplaceOrderRequest->getPaymentMethod(),
+            'shipping_address' => [
+                'firstname' => $marketplaceOrderRequest->getShippingAddress()->getFirstname(),
+                'lastname' => $marketplaceOrderRequest->getShippingAddress()->getLastname(),
+                'company' => $marketplaceOrderRequest->getShippingAddress()->getCompany(),
+                'street' => $marketplaceOrderRequest->getShippingAddress()->getStreet(),
+                'postcode' => $marketplaceOrderRequest->getShippingAddress()->getPostcode(),
+                'city' => $marketplaceOrderRequest->getShippingAddress()->getCity(),
+                'telephone' => $marketplaceOrderRequest->getShippingAddress()->getTelephone(),
+            ],
+            'shipping_method' => $marketplaceOrderRequest->getShippingMethod(),
+            'shipping_carrier' => $marketplaceOrderRequest->getShippingCarrier(),
+        ];
+        $this->logger->info('Sending MarketplaceOrderRequest', $data);
+        $response = $this->esbClientFactory->create()->request(
+            'POST',
+            sprintf('api/magento/%s/create-order', strtoupper($marketplaceOrderRequest->getCountryCode())),
+            [
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Accept' => 'application/json',
+                ],
+                RequestOptions::JSON => ['data' => $data],
+            ]
+        );
+        $this->logger->info('MarketplaceOrderRequest has been send', $data);
+        if ($response->getStatusCode() !== self::HTTP_OK) {
             throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
         }
     }
