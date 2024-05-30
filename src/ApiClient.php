@@ -403,7 +403,7 @@ final class ApiClient
         }
     }
 
-    public function sendMarketplaceOrderRequest(MarketplaceOrderRequest $marketplaceOrderRequest): void
+    public function sendMarketplaceOrderRequest(MarketplaceOrderRequest $marketplaceOrderRequest): array
     {
         $products = [];
         foreach ($marketplaceOrderRequest->getProducts() as $product) {
@@ -445,6 +445,7 @@ final class ApiClient
         if ($response->getStatusCode() !== self::HTTP_OK) {
             throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
         }
+        return json_decode((string)$response->getBody()->getContents(), true);
     }
 
     /**
