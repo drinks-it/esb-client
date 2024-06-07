@@ -99,6 +99,56 @@ final class Customer
      */
     private $organizationName;
 
+    /**
+     * @var null|string
+     */
+    private $deliveryTimeOnMondayFrom;
+
+    /**
+     * @var null|string
+     */
+    private $deliveryTimeOnMondayTo;
+
+    /**
+     * @var null|string
+     */
+    private $deliveryTimeOnTuesdayFrom;
+
+    /**
+     * @var null|string
+     */
+    private $deliveryTimeOnTuesdayTo;
+
+    /**
+     * @var null|string
+     */
+    private $deliveryTimeOnWednesdayFrom;
+
+    /**
+     * @var null|string
+     */
+    private $deliveryTimeOnWednesdayTo;
+
+    /**
+     * @var null|string
+     */
+    private $deliveryTimeOnThursdayFrom;
+
+    /**
+     * @var null|string
+     */
+    private $deliveryTimeOnThursdayTo;
+
+    /**
+     * @var null|string
+     */
+    private $deliveryTimeOnFridayFrom;
+
+    /**
+     * @var null|string
+     */
+    private $deliveryTimeOnFridayTo;
+
     public function getId(): int
     {
         return $this->id;
@@ -287,5 +337,165 @@ final class Customer
     public function setInvoicesEmail(?string $invoicesEmail): void
     {
         $this->invoicesEmail = $invoicesEmail;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeliveryTimeOnMondayFrom(): ?string
+    {
+        return $this->deliveryTimeOnMondayFrom;
+    }
+
+    /**
+     * @param string|null $deliveryTimeOnMondayFrom
+     */
+    public function setDeliveryTimeOnMondayFrom(?string $deliveryTimeOnMondayFrom): void
+    {
+        $this->deliveryTimeOnMondayFrom = $deliveryTimeOnMondayFrom;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeliveryTimeOnMondayTo(): ?string
+    {
+        return $this->deliveryTimeOnMondayTo;
+    }
+
+    /**
+     * @param string|null $deliveryTimeOnMondayTo
+     */
+    public function setDeliveryTimeOnMondayTo(?string $deliveryTimeOnMondayTo): void
+    {
+        $this->deliveryTimeOnMondayTo = $deliveryTimeOnMondayTo;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeliveryTimeOnTuesdayFrom(): ?string
+    {
+        return $this->deliveryTimeOnTuesdayFrom;
+    }
+
+    /**
+     * @param string|null $deliveryTimeOnTuesdayFrom
+     */
+    public function setDeliveryTimeOnTuesdayFrom(?string $deliveryTimeOnTuesdayFrom): void
+    {
+        $this->deliveryTimeOnTuesdayFrom = $deliveryTimeOnTuesdayFrom;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeliveryTimeOnTuesdayTo(): ?string
+    {
+        return $this->deliveryTimeOnTuesdayTo;
+    }
+
+    /**
+     * @param string|null $deliveryTimeOnTuesdayTo
+     */
+    public function setDeliveryTimeOnTuesdayTo(?string $deliveryTimeOnTuesdayTo): void
+    {
+        $this->deliveryTimeOnTuesdayTo = $deliveryTimeOnTuesdayTo;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeliveryTimeOnWednesdayFrom(): ?string
+    {
+        return $this->deliveryTimeOnWednesdayFrom;
+    }
+
+    /**
+     * @param string|null $deliveryTimeOnWednesdayFrom
+     */
+    public function setDeliveryTimeOnWednesdayFrom(?string $deliveryTimeOnWednesdayFrom): void
+    {
+        $this->deliveryTimeOnWednesdayFrom = $deliveryTimeOnWednesdayFrom;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeliveryTimeOnWednesdayTo(): ?string
+    {
+        return $this->deliveryTimeOnWednesdayTo;
+    }
+
+    /**
+     * @param string|null $deliveryTimeOnWednesdayTo
+     */
+    public function setDeliveryTimeOnWednesdayTo(?string $deliveryTimeOnWednesdayTo): void
+    {
+        $this->deliveryTimeOnWednesdayTo = $deliveryTimeOnWednesdayTo;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeliveryTimeOnThursdayFrom(): ?string
+    {
+        return $this->deliveryTimeOnThursdayFrom;
+    }
+
+    /**
+     * @param string|null $deliveryTimeOnThursdayFrom
+     */
+    public function setDeliveryTimeOnThursdayFrom(?string $deliveryTimeOnThursdayFrom): void
+    {
+        $this->deliveryTimeOnThursdayFrom = $deliveryTimeOnThursdayFrom;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeliveryTimeOnThursdayTo(): ?string
+    {
+        return $this->deliveryTimeOnThursdayTo;
+    }
+
+    /**
+     * @param string|null $deliveryTimeOnThursdayTo
+     */
+    public function setDeliveryTimeOnThursdayTo(?string $deliveryTimeOnThursdayTo): void
+    {
+        $this->deliveryTimeOnThursdayTo = $deliveryTimeOnThursdayTo;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeliveryTimeOnFridayFrom(): ?string
+    {
+        return $this->deliveryTimeOnFridayFrom;
+    }
+
+    /**
+     * @param string|null $deliveryTimeOnFridayFrom
+     */
+    public function setDeliveryTimeOnFridayFrom(?string $deliveryTimeOnFridayFrom): void
+    {
+        $this->deliveryTimeOnFridayFrom = $deliveryTimeOnFridayFrom;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDeliveryTimeOnFridayTo(): ?string
+    {
+        return $this->deliveryTimeOnFridayTo;
+    }
+
+    /**
+     * @param string|null $deliveryTimeOnFridayTo
+     */
+    public function setDeliveryTimeOnFridayTo(?string $deliveryTimeOnFridayTo): void
+    {
+        $this->deliveryTimeOnFridayTo = $deliveryTimeOnFridayTo;
     }
 }
