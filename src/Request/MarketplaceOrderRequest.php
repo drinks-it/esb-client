@@ -112,9 +112,9 @@ final class MarketplaceOrderRequest
         return $this->deliveryDate;
     }
 
-    public function setDeliveryDate(?string $shippingCarrier): void
+    public function setDeliveryDate(?string $deliveryDate): void
     {
-        $this->deliveryDate = $shippingCarrier;
+        $this->deliveryDate = $deliveryDate;
     }
 
     public function getDeliveryPhoneNumber(): string
