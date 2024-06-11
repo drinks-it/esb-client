@@ -38,9 +38,14 @@ final class MarketplaceOrderRequest
     private $shippingMethod;
 
     /**
+     * @var null|string
+     */
+    private $deliveryDate = null;
+
+    /**
      * @var string
      */
-    private $shippingCarrier;
+    private $deliveryPhoneNumber;
 
     public function getCountryCode(): string
     {
@@ -102,13 +107,23 @@ final class MarketplaceOrderRequest
         $this->shippingMethod = $shippingMethod;
     }
 
-    public function getShippingCarrier(): string
+    public function getDeliveryDate(): ?string
     {
-        return $this->shippingCarrier;
+        return $this->deliveryDate;
     }
 
-    public function setShippingCarrier(string $shippingCarrier): void
+    public function setDeliveryDate(?string $shippingCarrier): void
     {
-        $this->shippingCarrier = $shippingCarrier;
+        $this->deliveryDate = $shippingCarrier;
+    }
+
+    public function getDeliveryPhoneNumber(): string
+    {
+        return $this->deliveryPhoneNumber;
+    }
+
+    public function setDeliveryPhoneNumber(string $deliveryPhoneNumber): void
+    {
+        $this->deliveryPhoneNumber = $deliveryPhoneNumber;
     }
 }

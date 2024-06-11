@@ -427,7 +427,8 @@ final class ApiClient
                 'telephone' => $marketplaceOrderRequest->getShippingAddress()->getTelephone(),
             ],
             'shipping_method' => $marketplaceOrderRequest->getShippingMethod(),
-            'shipping_carrier' => $marketplaceOrderRequest->getShippingCarrier(),
+            'delivery_date' => $marketplaceOrderRequest->getDeliveryDate(),
+            'delivery_phone_number' => $marketplaceOrderRequest->getDeliveryPhoneNumber(),
         ];
         $this->logger->info('Sending MarketplaceOrderRequest', $data);
         $response = $this->esbClientFactory->create()->request(
