@@ -38,6 +38,11 @@ final class MarketplaceOrderRequest
     private $shippingMethod;
 
     /**
+     * @var string
+     */
+    private $marketplace;
+
+    /**
      * @var null|string
      */
     private $deliveryDate = null;
@@ -110,5 +115,21 @@ final class MarketplaceOrderRequest
     public function setDeliveryDate(?string $deliveryDate): void
     {
         $this->deliveryDate = $deliveryDate;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMarketplace(): string
+    {
+        return $this->marketplace;
+    }
+
+    /**
+     * @param string $marketplace
+     */
+    public function setMarketplace(string $marketplace): void
+    {
+        $this->marketplace = $marketplace;
     }
 }
