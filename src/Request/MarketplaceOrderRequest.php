@@ -42,11 +42,6 @@ final class MarketplaceOrderRequest
      */
     private $deliveryDate = null;
 
-    /**
-     * @var string
-     */
-    private $deliveryPhoneNumber;
-
     public function getCountryCode(): string
     {
         return $this->countryCode;
@@ -115,15 +110,5 @@ final class MarketplaceOrderRequest
     public function setDeliveryDate(?string $deliveryDate): void
     {
         $this->deliveryDate = $deliveryDate;
-    }
-
-    public function getDeliveryPhoneNumber(): string
-    {
-        return $this->deliveryPhoneNumber;
-    }
-
-    public function setDeliveryPhoneNumber(string $deliveryPhoneNumber): void
-    {
-        $this->deliveryPhoneNumber = $deliveryPhoneNumber;
     }
 }

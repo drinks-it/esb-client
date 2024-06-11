@@ -428,7 +428,6 @@ final class ApiClient
             ],
             'shipping_method' => $marketplaceOrderRequest->getShippingMethod(),
             'delivery_date' => $marketplaceOrderRequest->getDeliveryDate(),
-            'delivery_phone_number' => $marketplaceOrderRequest->getDeliveryPhoneNumber(),
         ];
         $this->logger->info('Sending MarketplaceOrderRequest', $data);
         $response = $this->esbClientFactory->create()->request(
