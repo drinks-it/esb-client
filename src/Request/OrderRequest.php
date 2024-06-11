@@ -130,6 +130,10 @@ final class OrderRequest
      */
     private $shippingDateTimeTo = null;
 
+    /**
+     * @var null|string
+     */
+    private $marketplace = null;
 
     public function getCreatedAt(): \DateTimeInterface
     {
@@ -372,5 +376,21 @@ final class OrderRequest
     public function setShippingDateTimeTo(?\DateTimeInterface $shippingDateTimeTo): void
     {
         $this->shippingDateTimeTo = $shippingDateTimeTo;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getMarketplace(): ?string
+    {
+        return $this->marketplace;
+    }
+
+    /**
+     * @param string|null $marketplace
+     */
+    public function setMarketplace(?string $marketplace): void
+    {
+        $this->marketplace = $marketplace;
     }
 }

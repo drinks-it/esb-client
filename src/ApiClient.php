@@ -274,6 +274,7 @@ final class ApiClient
                 'shippingPhoneNumber' => $orderRequest->getShippingPhoneNumber(),
                 'shippingDateTimeFrom' => $orderRequest->getShippingDateTimeFrom() ? $orderRequest->getShippingDateTimeFrom()->format('c') : null,
                 'shippingDateTimeTo' => $orderRequest->getShippingDateTimeTo() ? $orderRequest->getShippingDateTimeTo()->format('c') : null,
+                'marketplace' => $orderRequest->getMarketplace(),
                 'billingAddress' => [
                     'prefix' => $orderRequest->getBillingAddress()->getPrefix(),
                     'company' => $orderRequest->getBillingAddress()->getCompany(),
