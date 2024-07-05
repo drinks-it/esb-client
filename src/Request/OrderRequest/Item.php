@@ -82,7 +82,7 @@ final class Item
     /** @var bool */
     private $isHasManageStock;
 
-    /** @var bool */
+    /** @var ?bool */
     private $isBackOrderQuantityExceedsAvailable;
 
     public function getPrice(): float
@@ -245,12 +245,13 @@ final class Item
         $this->isHasManageStock = $isHasManageStock;
     }
 
-    public function isBackOrderQuantityExceedsAvailable(): bool
+
+    public function isBackOrderQuantityExceedsAvailable(): ?bool
     {
         return $this->isBackOrderQuantityExceedsAvailable;
     }
 
-    public function setIsBackOrderQuantityExceedsAvailable(bool $isBackOrderQuantityExceedsAvailable): void
+    public function setIsBackOrderQuantityExceedsAvailable(?bool $isBackOrderQuantityExceedsAvailable): void
     {
         $this->isBackOrderQuantityExceedsAvailable = $isBackOrderQuantityExceedsAvailable;
     }
