@@ -474,6 +474,8 @@ final class ApiClient
                 'taxAmount' => $item->getTaxAmount(),
                 'isSilverbogenProduct' => $item->isSilverbogenProduct(),
                 'family' => $item->getFamily(),
+                'isHasManageStock' => $item->isHasManageStock(),
+                'isBackOrderQuantityExceedsAvailable' => $item->isBackOrderQuantityExceedsAvailable(),
             ];
         }
         return $itemsData;

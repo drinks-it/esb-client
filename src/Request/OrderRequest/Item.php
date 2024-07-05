@@ -79,6 +79,12 @@ final class Item
      */
     private $family;
 
+    /** @var bool */
+    private $isHasManageStock;
+
+    /** @var bool */
+    private $isBackOrderQuantityExceedsAvailable;
+
     public function getPrice(): float
     {
         return $this->price;
@@ -227,5 +233,25 @@ final class Item
     public function setTaxAmount(float $taxAmount): void
     {
         $this->taxAmount = $taxAmount;
+    }
+
+    public function isHasManageStock(): bool
+    {
+        return $this->isHasManageStock;
+    }
+
+    public function setIsHasManageStock(bool $isHasManageStock): void
+    {
+        $this->isHasManageStock = $isHasManageStock;
+    }
+
+    public function isBackOrderQuantityExceedsAvailable(): bool
+    {
+        return $this->isBackOrderQuantityExceedsAvailable;
+    }
+
+    public function setIsBackOrderQuantityExceedsAvailable(bool $isBackOrderQuantityExceedsAvailable): void
+    {
+        $this->isBackOrderQuantityExceedsAvailable = $isBackOrderQuantityExceedsAvailable;
     }
 }
