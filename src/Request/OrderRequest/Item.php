@@ -245,7 +245,6 @@ final class Item
         $this->isHasManageStock = $isHasManageStock;
     }
 
-
     public function isBackOrderQuantityExceedsAvailable(): ?bool
     {
         return $this->isBackOrderQuantityExceedsAvailable;
