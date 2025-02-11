@@ -418,6 +418,14 @@ final class ApiClient
             'customer_id' => $marketplaceOrderRequest->getCustomerId(),
             'products' => $products,
             'payment_method' => $marketplaceOrderRequest->getPaymentMethod(),
+            'billing_address' => [
+                'firstname' => $marketplaceOrderRequest->getBillingAddress()->getFirstname(),
+                'lastname' => $marketplaceOrderRequest->getBillingAddress()->getLastname(),
+                'company' => $marketplaceOrderRequest->getBillingAddress()->getCompany(),
+                'street' => $marketplaceOrderRequest->getBillingAddress()->getStreet(),
+                'postcode' => $marketplaceOrderRequest->getBillingAddress()->getPostcode(),
+                'city' => $marketplaceOrderRequest->getBillingAddress()->getCity(),
+            ],
             'shipping_address' => [
                 'firstname' => $marketplaceOrderRequest->getShippingAddress()->getFirstname(),
                 'lastname' => $marketplaceOrderRequest->getShippingAddress()->getLastname(),

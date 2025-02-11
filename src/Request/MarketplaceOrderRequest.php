@@ -3,6 +3,7 @@
 namespace Nrgone\EsbClient\Request;
 
 use Nrgone\EsbClient\Request\MarketplaceOrderRequest\Product;
+use Nrgone\EsbClient\Request\MarketplaceOrderRequest\BillingAddress;
 use Nrgone\EsbClient\Request\MarketplaceOrderRequest\ShippingAddress;
 
 final class MarketplaceOrderRequest
@@ -31,6 +32,11 @@ final class MarketplaceOrderRequest
      * @var ShippingAddress
      */
     private $shippingAddress;
+
+    /**
+     * @var BillingAddress
+     */
+    private $billingAddress;
 
     /**
      * @var string
@@ -95,6 +101,16 @@ final class MarketplaceOrderRequest
     public function setShippingAddress(ShippingAddress $shippingAddress): void
     {
         $this->shippingAddress = $shippingAddress;
+    }
+
+    public function getBillingAddress(): BillingAddress
+    {
+        return $this->billingAddress;
+    }
+
+    public function setBillingAddress(BillingAddress $billingAddress): void
+    {
+        $this->billingAddress = $billingAddress;
     }
 
     public function getShippingMethod(): string
