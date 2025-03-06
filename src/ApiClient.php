@@ -325,6 +325,7 @@ final class ApiClient
                     'telAnnouncement' => $orderRequest->getCustomer()->getTelAnnouncement(),
                     'dunningEmail' => $orderRequest->getCustomer()->getDunningEmail(),
                     'invoicesEmail' => $orderRequest->getCustomer()->getInvoicesEmail(),
+                    'invoiceDueDate' => $orderRequest->getCustomer()->getInvoiceDueDate(),
                     'group' => $orderRequest->getCustomer()->getGroup(),
                     'organizationName' => $orderRequest->getCustomer()->getOrganizationName(),
                 ],
