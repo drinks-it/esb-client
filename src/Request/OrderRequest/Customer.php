@@ -98,6 +98,12 @@ final class Customer
      * @var null|string
      */
     private $organizationName;
+
+    /**
+     * @var null|string
+     */
+    private $invoiceDueDate;
+
     public function getId(): int
     {
         return $this->id;
@@ -286,5 +292,15 @@ final class Customer
     public function setInvoicesEmail(?string $invoicesEmail): void
     {
         $this->invoicesEmail = $invoicesEmail;
+    }
+
+    public function getInvoiceDueDate(): ?string
+    {
+        return $this->invoiceDueDate;
+    }
+
+    public function setInvoiceDueDate(?string $invoiceDueDate): void
+    {
+        $this->invoiceDueDate = $invoiceDueDate;
     }
 }
