@@ -326,6 +326,7 @@ final class ApiClient
                     'dunningEmail' => $orderRequest->getCustomer()->getDunningEmail(),
                     'invoicesEmail' => $orderRequest->getCustomer()->getInvoicesEmail(),
                     'invoiceDueDate' => $orderRequest->getCustomer()->getInvoiceDueDate(),
+                    'dob' => $orderRequest->getCustomer()->getDob(),
                     'group' => $orderRequest->getCustomer()->getGroup(),
                     'organizationName' => $orderRequest->getCustomer()->getOrganizationName(),
                 ],
