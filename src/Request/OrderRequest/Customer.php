@@ -104,6 +104,11 @@ final class Customer
      */
     private $invoiceDueDate;
 
+    /**
+     * @var null|string
+     */
+    private $dob;
+
     public function getId(): int
     {
         return $this->id;
@@ -302,5 +307,15 @@ final class Customer
     public function setInvoiceDueDate(?string $invoiceDueDate): void
     {
         $this->invoiceDueDate = $invoiceDueDate;
+    }
+
+    public function getDob(): ?string
+    {
+        return $this->dob;
+    }
+
+    public function setDob(?string $dob): void
+    {
+        $this->dob = $dob;
     }
 }
