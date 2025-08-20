@@ -329,6 +329,7 @@ final class ApiClient
                     'dob' => $orderRequest->getCustomer()->getDob(),
                     'group' => $orderRequest->getCustomer()->getGroup(),
                     'organizationName' => $orderRequest->getCustomer()->getOrganizationName(),
+                    'orderVelocity' => $orderRequest->getCustomer()->getOrderVelocity(),
                 ],
             ],
         ];

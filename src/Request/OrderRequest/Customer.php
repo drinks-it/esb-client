@@ -109,6 +109,11 @@ final class Customer
      */
     private $dob;
 
+    /**
+     * @var array
+     */
+    private $orderVelocity;
+
     public function getId(): int
     {
         return $this->id;
@@ -317,5 +322,15 @@ final class Customer
     public function setDob(?string $dob): void
     {
         $this->dob = $dob;
+    }
+
+    public function getOrderVelocity(): array
+    {
+        return $this->orderVelocity;
+    }
+
+    public function setOrderVelocity(array $orderVelocity): void
+    {
+        $this->orderVelocity = $orderVelocity;
     }
 }
