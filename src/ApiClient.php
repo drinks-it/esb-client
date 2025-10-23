@@ -487,6 +487,7 @@ final class ApiClient
                 'family' => $item->getFamily(),
                 'isHasManageStock' => $item->isHasManageStock(),
                 'isBackOrderQuantityExceedsAvailable' => $item->isBackOrderQuantityExceedsAvailable(),
+                'isWrapped' => $item->isWrapped(),
             ];
         }
         return $itemsData;

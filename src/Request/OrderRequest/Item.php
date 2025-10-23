@@ -85,6 +85,9 @@ final class Item
     /** @var ?bool */
     private $isBackOrderQuantityExceedsAvailable;
 
+    /** @var ?bool */
+    private $isWrapped;
+
     public function getPrice(): float
     {
         return $this->price;
@@ -253,5 +256,15 @@ final class Item
     public function setIsBackOrderQuantityExceedsAvailable(?bool $isBackOrderQuantityExceedsAvailable): void
     {
         $this->isBackOrderQuantityExceedsAvailable = $isBackOrderQuantityExceedsAvailable;
+    }
+
+    public function isWrapped(): ?bool
+    {
+        return $this->isWrapped;
+    }
+
+    public function setIsWrapped(?bool $isWrapped): void
+    {
+        $this->isWrapped = $isWrapped;
     }
 }
