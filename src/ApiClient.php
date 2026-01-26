@@ -8,6 +8,7 @@ use Nrgone\EsbClient\Factory\EsbClientFactory;
 use Nrgone\EsbClient\Request\AlcoholTaxReportingWarehouseRequest;
 use Nrgone\EsbClient\Request\EmailRequest;
 use Nrgone\EsbClient\Request\MarketplaceOrderRequest;
+use Nrgone\EsbClient\Request\MplCommandTriggerRequest;
 use Nrgone\EsbClient\Request\OrderRequest;
 use Nrgone\EsbClient\Request\PimProductMsiFallbackRequest;
 use Nrgone\EsbClient\Request\PimProductPriceRequest;
@@ -402,6 +403,32 @@ final class ApiClient
             ]
         );
         $this->logger->info('AlcoholTaxReportingWarehouseRequest has been send', $data);
+        if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
+            throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
+        }
+    }
+
+    public function sendMplCommandTriggerRequest(MplCommandTriggerRequest $request): void
+    {
+        $data = [
+            'type' => 'MplCommandTriggerRequest',
+            'attributes' => [
+                'trigger' => $request->getTrigger(),
+                'data' => $request->getData(),
+            ],
+        ];
+        $response = $this->esbClientFactory->create()->request(
+            'POST',
+            'api/mpl_command_trigger_requests',
+            [
+                'headers' => [
+                    'Content-Type' => 'application/vnd.api+json',
+                    'Accept' => 'application/vnd.api+json',
+                ],
+                RequestOptions::JSON => ['data' => $data],
+            ]
+        );
+        $this->logger->info('MplCommandTriggerRequest has been send', $data);
         if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
             throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
         }
