@@ -15,6 +15,7 @@ use Nrgone\EsbClient\Request\PimProductPriceRequest;
 use Nrgone\EsbClient\Request\PixiCustomerOrdersReportRequest;
 use Nrgone\EsbClient\Request\PixiReportOrderHeaderRequest;
 use Nrgone\EsbClient\Request\PixiReportTaxRequest;
+use Nrgone\EsbClient\Request\PoSapVsAlcTaxReportRequest;
 use Psr\Log\LoggerInterface;
 
 final class ApiClient
@@ -403,6 +404,32 @@ final class ApiClient
             ]
         );
         $this->logger->info('AlcoholTaxReportingWarehouseRequest has been send', $data);
+        if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
+            throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
+        }
+    }
+
+    public function sendPoSapVsAlcTaxReportRequest(PoSapVsAlcTaxReportRequest $request): void
+    {
+        $data = [
+            'type' => 'PoSapVsAlcTaxReportRequest',
+            'attributes' => [
+                'countryCode' => $request->getCountryCode(),
+                'yearMonthDate' => $request->getYearMonthDate()->format('Y-m-d'),
+            ],
+        ];
+        $response = $this->esbClientFactory->create()->request(
+            'POST',
+            'api/po_sap_vs_alc_tax_requests',
+            [
+                'headers' => [
+                    'Content-Type' => 'application/vnd.api+json',
+                    'Accept' => 'application/vnd.api+json',
+                ],
+                RequestOptions::JSON => ['data' => $data],
+            ]
+        );
+        $this->logger->info('PoSapVsAlcTaxReportRequest has been send', $data);
         if ($response->getStatusCode() !== self::HTTP_ACCEPTED) {
             throw new \RuntimeException("Unexpected response code: {$response->getStatusCode()}");
         }
