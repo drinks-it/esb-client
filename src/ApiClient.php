@@ -414,6 +414,7 @@ final class ApiClient
         $data = [
             'type' => 'PoSapVsAlcTaxReportRequest',
             'attributes' => [
+                'email' => $request->getEmail(),
                 'countryCode' => $request->getCountryCode(),
                 'yearMonthDate' => $request->getYearMonthDate()->format('Y-m-d'),
             ],

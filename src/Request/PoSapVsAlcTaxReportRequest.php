@@ -4,9 +4,21 @@ namespace Nrgone\EsbClient\Request;
 
 final class PoSapVsAlcTaxReportRequest
 {
+    private string $email;
+
     private string $countryCode;
 
     private \DateTimeInterface $yearMonthDate;
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
 
     public function getCountryCode(): string
     {
